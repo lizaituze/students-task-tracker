@@ -25,13 +25,23 @@ taskForm.addEventListener("submit", (e) => {
     "bg-white p-5 rounded-xl shadow-md border border-gray-200";
 
   taskCard.innerHTML = `
-    <h4 class="text-xl font-bold mb-2">${taskName}</h4>
+  <h4 class="text-xl font-bold mb-2">${taskName}</h4>
 
-    <p class="text-gray-600">
-      Due Date: ${dueDate}
-    </p>
-  `;
+  <p class="text-gray-600 mb-4">
+    Due Date: ${dueDate}
+  </p>
 
+  <button
+    class="deleteBtn bg-red-500 hover:bg-red-600 transition text-white px-4 py-2 rounded-lg"
+  >
+    Delete
+  </button>
+`;
+const deleteBtn = taskCard.querySelector(".deleteBtn");
+
+deleteBtn.addEventListener("click", () => {
+  taskCard.remove();
+});
   // Add card to screen
   taskContainer.appendChild(taskCard);
 
