@@ -3,6 +3,10 @@ const taskInput = document.getElementById("taskInput");
 const dateInput = document.getElementById("dateInput");
 const errorMessage = document.getElementById("errorMessage");
 const taskContainer = document.getElementById("taskContainer");
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
